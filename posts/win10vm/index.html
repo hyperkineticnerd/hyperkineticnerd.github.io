@@ -1,15 +1,17 @@
-<!doctype html>
-<html lang="en-us">
+<!DOCTYPE html>
+<html lang="en">
+
   <head>
-    <title>Gaming and VR Virtual Machines // Another Random Tech Blog</title>
-    <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.74.2" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Sean Nelson" />
-    <meta name="description" content="" />
-    <link rel="stylesheet" href="http://hyperkineticnerd.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Sean Nelson">
+    <meta name="description" content="Preamble The intent of this setup is to provide a base Linux system for Development and native Gaming, while also providing the ability to run Windows-only Games (or Heavy Windows-only software). The setup will consist of 2TB SSD for Linux where a small 200GB Microsoft Windows 10 disk will also reside. The Windows 10 Virtual Machine will have direct access to several devices like SATA and Graphics. In my setup, the VM will have Three SATA SSDs (for Video Game storage) and a PCI-Express based Graphics Card.">
+    <meta name="keywords" content="">
 
     
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Gaming and VR Virtual Machines"/>
 <meta name="twitter:description" content="Preamble The intent of this setup is to provide a base Linux system for Development and native Gaming, while also providing the ability to run Windows-only Games (or Heavy Windows-only software). The setup will consist of 2TB SSD for Linux where a small 200GB Microsoft Windows 10 disk will also reside. The Windows 10 Virtual Machine will have direct access to several devices like SATA and Graphics. In my setup, the VM will have Three SATA SSDs (for Video Game storage) and a PCI-Express based Graphics Card."/>
@@ -22,49 +24,97 @@
 <meta property="article:modified_time" content="2020-07-23T06:25:08-06:00" />
 
 
-  </head>
-  <body>
-    <header class="app-header">
-      <a href="http://hyperkineticnerd.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="Sean Nelson" /></a>
-      <h1>Another Random Tech Blog</h1>
-      <p>Consultant</p>
-      <div class="app-header-social">
-        
-          <a target="_blank" href="https://github.com/hyperkineticnerd" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
-  <title>github</title>
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg></a>
-        
-      </div>
-    </header>
-    <main class="app-container">
+    
+      <base href="http://hyperkineticnerd.github.io/posts/win10vm/">
+    
+    <title>
+  Gaming and VR Virtual Machines · Another Random Tech Blog
+</title>
+
+    
+      <link rel="canonical" href="http://hyperkineticnerd.github.io/posts/win10vm/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class ="post-title">Gaming and VR Virtual Machines</h1>
-      <div class="post-meta">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
-  <title>calendar</title>
-  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
-</svg>
-          Jul 23, 2020
+      
+      <link rel="stylesheet" href="/css/coder.min.3219ef62ae52679b7a9c19043171c3cd9f523628c2a65f3ef247ee18836bc90b.css" integrity="sha256-MhnvYq5SZ5t6nBkEMXHDzZ9SNijCpl8&#43;8kfuGINryQs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="/css/molokai.css" />
+    
+      <link rel="stylesheet" href="/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="http://hyperkineticnerd.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://hyperkineticnerd.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.74.2" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light"
+        onload=""
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Another Random Tech Blog
+    </a>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Gaming and VR Virtual Machines</h1>
         </div>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
-  <title>clock</title>
-  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
-</svg>
-          19 min read
-        </div><div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
-  <title>tag</title>
-  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
-</svg>
-          </div></div>
-    </header>
-    <div class="post-content">
-      <div class="sect1">
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-07-23T06:25:08-06:00'>
+                July 23, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              15-minute read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="/tags/libvirt/">libvirt</a>
+      <span class="separator">•</span>
+    <a href="/tags/kvm/">kvm</a>
+      <span class="separator">•</span>
+    <a href="/tags/win10/">win10</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <div class="sect1">
 <h2 id="_preamble">Preamble</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -713,317 +763,7 @@ lrwxrwxrwx 1 root root 10 May 28 14:08 wwn-0x5002538e4978e48a-part3 -&gt; ../../
 <h3 id="_appendix_e_full_libvirt_xml">Appendix E: Full LibVirt XML</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="xml"><span class="nt">&lt;domain</span> <span class="na">type=</span><span class="s">'kvm'</span> <span class="na">id=</span><span class="s">'2'</span> <span class="na">xmlns:qemu=</span><span class="s">'http://libvirt.org/schemas/domain/qemu/1.0'</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;name&gt;</span>win10<span class="nt">&lt;/name&gt;</span>
-  <span class="nt">&lt;uuid&gt;</span>0b7e8897-7003-4d74-94b8-d23b1c271ccf<span class="nt">&lt;/uuid&gt;</span>
-  <span class="nt">&lt;metadata&gt;</span>
-    <span class="nt">&lt;libosinfo:libosinfo</span> <span class="na">xmlns:libosinfo=</span><span class="s">"http://libosinfo.org/xmlns/libvirt/domain/1.0"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;libosinfo:os</span> <span class="na">id=</span><span class="s">"http://microsoft.com/win/10"</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/libosinfo:libosinfo&gt;</span>
-  <span class="nt">&lt;/metadata&gt;</span>
-  <span class="nt">&lt;memory</span> <span class="na">unit=</span><span class="s">'KiB'</span><span class="nt">&gt;</span>16777216<span class="nt">&lt;/memory&gt;</span>
-  <span class="nt">&lt;currentMemory</span> <span class="na">unit=</span><span class="s">'KiB'</span><span class="nt">&gt;</span>16777216<span class="nt">&lt;/currentMemory&gt;</span>
-  <span class="nt">&lt;memoryBacking&gt;</span>
-    <span class="nt">&lt;hugepages/&gt;</span>
-  <span class="nt">&lt;/memoryBacking&gt;</span>
-  <span class="nt">&lt;vcpu</span> <span class="na">placement=</span><span class="s">'static'</span> <span class="na">cpuset=</span><span class="s">'6-11,18-23'</span><span class="nt">&gt;</span>12<span class="nt">&lt;/vcpu&gt;</span>
-  <span class="nt">&lt;iothreads&gt;</span>2<span class="nt">&lt;/iothreads&gt;</span>
-  <span class="nt">&lt;cputune&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'0'</span> <span class="na">cpuset=</span><span class="s">'6'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'1'</span> <span class="na">cpuset=</span><span class="s">'18'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'2'</span> <span class="na">cpuset=</span><span class="s">'7'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'3'</span> <span class="na">cpuset=</span><span class="s">'19'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'4'</span> <span class="na">cpuset=</span><span class="s">'8'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'5'</span> <span class="na">cpuset=</span><span class="s">'20'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'6'</span> <span class="na">cpuset=</span><span class="s">'9'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'7'</span> <span class="na">cpuset=</span><span class="s">'21'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'8'</span> <span class="na">cpuset=</span><span class="s">'10'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'9'</span> <span class="na">cpuset=</span><span class="s">'22'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'10'</span> <span class="na">cpuset=</span><span class="s">'11'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;vcpupin</span> <span class="na">vcpu=</span><span class="s">'11'</span> <span class="na">cpuset=</span><span class="s">'23'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;emulatorpin</span> <span class="na">cpuset=</span><span class="s">'5,17'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;iothreadpin</span> <span class="na">iothread=</span><span class="s">'1'</span> <span class="na">cpuset=</span><span class="s">'5,17'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;iothreadpin</span> <span class="na">iothread=</span><span class="s">'2'</span> <span class="na">cpuset=</span><span class="s">'5,17'</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/cputune&gt;</span>
-  <span class="nt">&lt;resource&gt;</span>
-    <span class="nt">&lt;partition&gt;</span>/machine<span class="nt">&lt;/partition&gt;</span>
-  <span class="nt">&lt;/resource&gt;</span>
-  <span class="nt">&lt;os&gt;</span>
-    <span class="nt">&lt;type</span> <span class="na">arch=</span><span class="s">'x86_64'</span> <span class="na">machine=</span><span class="s">'pc-q35-5.0'</span><span class="nt">&gt;</span>hvm<span class="nt">&lt;/type&gt;</span>
-    <span class="nt">&lt;loader</span> <span class="na">readonly=</span><span class="s">'yes'</span> <span class="na">type=</span><span class="s">'pflash'</span><span class="nt">&gt;</span>/usr/share/edk2-ovmf/x64/OVMF_CODE.fd<span class="nt">&lt;/loader&gt;</span>
-    <span class="nt">&lt;nvram&gt;</span>/var/lib/libvirt/qemu/nvram/win10_VARS.fd<span class="nt">&lt;/nvram&gt;</span>
-  <span class="nt">&lt;/os&gt;</span>
-  <span class="nt">&lt;features&gt;</span>
-    <span class="nt">&lt;acpi/&gt;</span>
-    <span class="nt">&lt;apic/&gt;</span>
-    <span class="nt">&lt;hyperv&gt;</span>
-      <span class="nt">&lt;relaxed</span> <span class="na">state=</span><span class="s">'on'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;vapic</span> <span class="na">state=</span><span class="s">'on'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;spinlocks</span> <span class="na">state=</span><span class="s">'on'</span> <span class="na">retries=</span><span class="s">'8191'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/hyperv&gt;</span>
-    <span class="nt">&lt;vmport</span> <span class="na">state=</span><span class="s">'off'</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/features&gt;</span>
-  <span class="nt">&lt;cpu</span> <span class="na">mode=</span><span class="s">'host-passthrough'</span> <span class="na">check=</span><span class="s">'none'</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;topology</span> <span class="na">sockets=</span><span class="s">'1'</span> <span class="na">dies=</span><span class="s">'1'</span> <span class="na">cores=</span><span class="s">'6'</span> <span class="na">threads=</span><span class="s">'2'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;feature</span> <span class="na">policy=</span><span class="s">'require'</span> <span class="na">name=</span><span class="s">'topoext'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;feature</span> <span class="na">policy=</span><span class="s">'disable'</span> <span class="na">name=</span><span class="s">'amd-stibp'</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/cpu&gt;</span>
-  <span class="nt">&lt;clock</span> <span class="na">offset=</span><span class="s">'localtime'</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;timer</span> <span class="na">name=</span><span class="s">'rtc'</span> <span class="na">tickpolicy=</span><span class="s">'catchup'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;timer</span> <span class="na">name=</span><span class="s">'pit'</span> <span class="na">tickpolicy=</span><span class="s">'delay'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;timer</span> <span class="na">name=</span><span class="s">'hpet'</span> <span class="na">present=</span><span class="s">'no'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;timer</span> <span class="na">name=</span><span class="s">'hypervclock'</span> <span class="na">present=</span><span class="s">'yes'</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/clock&gt;</span>
-  <span class="nt">&lt;on_poweroff&gt;</span>destroy<span class="nt">&lt;/on_poweroff&gt;</span>
-  <span class="nt">&lt;on_reboot&gt;</span>restart<span class="nt">&lt;/on_reboot&gt;</span>
-  <span class="nt">&lt;on_crash&gt;</span>destroy<span class="nt">&lt;/on_crash&gt;</span>
-  <span class="nt">&lt;pm&gt;</span>
-    <span class="nt">&lt;suspend-to-mem</span> <span class="na">enabled=</span><span class="s">'no'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;suspend-to-disk</span> <span class="na">enabled=</span><span class="s">'no'</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/pm&gt;</span>
-  <span class="nt">&lt;devices&gt;</span>
-    <span class="nt">&lt;emulator&gt;</span>/usr/bin/qemu-system-x86_64<span class="nt">&lt;/emulator&gt;</span>
-    <span class="nt">&lt;disk</span> <span class="na">type=</span><span class="s">'file'</span> <span class="na">device=</span><span class="s">'disk'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;driver</span> <span class="na">name=</span><span class="s">'qemu'</span> <span class="na">type=</span><span class="s">'qcow2'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;source</span> <span class="na">file=</span><span class="s">'/var/lib/libvirt/images/win10.qcow2'</span> <span class="na">index=</span><span class="s">'4'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;backingStore/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">dev=</span><span class="s">'sdd'</span> <span class="na">bus=</span><span class="s">'sata'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;boot</span> <span class="na">order=</span><span class="s">'2'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'sata0-0-0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'drive'</span> <span class="na">controller=</span><span class="s">'0'</span> <span class="na">bus=</span><span class="s">'0'</span> <span class="na">target=</span><span class="s">'0'</span> <span class="na">unit=</span><span class="s">'0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/disk&gt;</span>
-    <span class="nt">&lt;disk</span> <span class="na">type=</span><span class="s">'block'</span> <span class="na">device=</span><span class="s">'disk'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;driver</span> <span class="na">name=</span><span class="s">'qemu'</span> <span class="na">type=</span><span class="s">'raw'</span> <span class="na">cache=</span><span class="s">'writeback'</span> <span class="na">io=</span><span class="s">'threads'</span> <span class="na">discard=</span><span class="s">'unmap'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;source</span> <span class="na">dev=</span><span class="s">'/dev/disk/by-id/ata-Samsung_SSD_860_QVO_1TB_S4PGNF0M706444T'</span> <span class="na">index=</span><span class="s">'3'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;backingStore/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">dev=</span><span class="s">'sda'</span> <span class="na">bus=</span><span class="s">'scsi'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'scsi0-0-0-1'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'drive'</span> <span class="na">controller=</span><span class="s">'0'</span> <span class="na">bus=</span><span class="s">'0'</span> <span class="na">target=</span><span class="s">'0'</span> <span class="na">unit=</span><span class="s">'1'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/disk&gt;</span>
-    <span class="nt">&lt;disk</span> <span class="na">type=</span><span class="s">'block'</span> <span class="na">device=</span><span class="s">'disk'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;driver</span> <span class="na">name=</span><span class="s">'qemu'</span> <span class="na">type=</span><span class="s">'raw'</span> <span class="na">cache=</span><span class="s">'writeback'</span> <span class="na">io=</span><span class="s">'threads'</span> <span class="na">discard=</span><span class="s">'unmap'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;source</span> <span class="na">dev=</span><span class="s">'/dev/disk/by-id/ata-Samsung_SSD_860_QVO_1TB_S4PGNF0M706466F'</span> <span class="na">index=</span><span class="s">'2'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;backingStore/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">dev=</span><span class="s">'sdb'</span> <span class="na">bus=</span><span class="s">'scsi'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'scsi0-0-0-2'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'drive'</span> <span class="na">controller=</span><span class="s">'0'</span> <span class="na">bus=</span><span class="s">'0'</span> <span class="na">target=</span><span class="s">'0'</span> <span class="na">unit=</span><span class="s">'2'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/disk&gt;</span>
-    <span class="nt">&lt;disk</span> <span class="na">type=</span><span class="s">'block'</span> <span class="na">device=</span><span class="s">'disk'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;driver</span> <span class="na">name=</span><span class="s">'qemu'</span> <span class="na">type=</span><span class="s">'raw'</span> <span class="na">cache=</span><span class="s">'writeback'</span> <span class="na">io=</span><span class="s">'threads'</span> <span class="na">discard=</span><span class="s">'unmap'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;source</span> <span class="na">dev=</span><span class="s">'/dev/disk/by-id/ata-Samsung_SSD_860_QVO_1TB_S4PGNF0M706471J'</span> <span class="na">index=</span><span class="s">'1'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;backingStore/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">dev=</span><span class="s">'sdc'</span> <span class="na">bus=</span><span class="s">'scsi'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'scsi0-0-0-3'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'drive'</span> <span class="na">controller=</span><span class="s">'0'</span> <span class="na">bus=</span><span class="s">'0'</span> <span class="na">target=</span><span class="s">'0'</span> <span class="na">unit=</span><span class="s">'3'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/disk&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'scsi'</span> <span class="na">index=</span><span class="s">'0'</span> <span class="na">model=</span><span class="s">'virtio-scsi'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;driver</span> <span class="na">queues=</span><span class="s">'8'</span> <span class="na">iothread=</span><span class="s">'1'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'scsi0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x0a'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'usb'</span> <span class="na">index=</span><span class="s">'0'</span> <span class="na">model=</span><span class="s">'qemu-xhci'</span> <span class="na">ports=</span><span class="s">'15'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'usb'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x02'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'sata'</span> <span class="na">index=</span><span class="s">'0'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'ide'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x1f'</span> <span class="na">function=</span><span class="s">'0x2'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'0'</span> <span class="na">model=</span><span class="s">'pcie-root'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pcie.0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'1'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'1'</span> <span class="na">port=</span><span class="s">'0x10'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.1'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x02'</span> <span class="na">function=</span><span class="s">'0x0'</span> <span class="na">multifunction=</span><span class="s">'on'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'2'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'2'</span> <span class="na">port=</span><span class="s">'0x11'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.2'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x02'</span> <span class="na">function=</span><span class="s">'0x1'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'3'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'3'</span> <span class="na">port=</span><span class="s">'0x12'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.3'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x02'</span> <span class="na">function=</span><span class="s">'0x2'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'4'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'4'</span> <span class="na">port=</span><span class="s">'0x13'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.4'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x02'</span> <span class="na">function=</span><span class="s">'0x3'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'5'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'5'</span> <span class="na">port=</span><span class="s">'0x14'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.5'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x02'</span> <span class="na">function=</span><span class="s">'0x4'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'6'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'6'</span> <span class="na">port=</span><span class="s">'0x15'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.6'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x02'</span> <span class="na">function=</span><span class="s">'0x5'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'7'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'7'</span> <span class="na">port=</span><span class="s">'0x8'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.7'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x01'</span> <span class="na">function=</span><span class="s">'0x0'</span> <span class="na">multifunction=</span><span class="s">'on'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'8'</span> <span class="na">model=</span><span class="s">'pcie-to-pci-bridge'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-pci-bridge'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.8'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x07'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'9'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'9'</span> <span class="na">port=</span><span class="s">'0x9'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.9'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x01'</span> <span class="na">function=</span><span class="s">'0x1'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'10'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'10'</span> <span class="na">port=</span><span class="s">'0xa'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.10'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x01'</span> <span class="na">function=</span><span class="s">'0x2'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'11'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'11'</span> <span class="na">port=</span><span class="s">'0xb'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.11'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x01'</span> <span class="na">function=</span><span class="s">'0x3'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'12'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'12'</span> <span class="na">port=</span><span class="s">'0xc'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.12'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x01'</span> <span class="na">function=</span><span class="s">'0x4'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'13'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'13'</span> <span class="na">port=</span><span class="s">'0xd'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.13'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x01'</span> <span class="na">function=</span><span class="s">'0x5'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'14'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'14'</span> <span class="na">port=</span><span class="s">'0xe'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.14'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x01'</span> <span class="na">function=</span><span class="s">'0x6'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">index=</span><span class="s">'15'</span> <span class="na">model=</span><span class="s">'pcie-root-port'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">name=</span><span class="s">'pcie-root-port'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">chassis=</span><span class="s">'15'</span> <span class="na">port=</span><span class="s">'0xf'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'pci.15'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x01'</span> <span class="na">function=</span><span class="s">'0x7'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;controller</span> <span class="na">type=</span><span class="s">'virtio-serial'</span> <span class="na">index=</span><span class="s">'0'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'virtio-serial0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x03'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/controller&gt;</span>
-    <span class="nt">&lt;interface</span> <span class="na">type=</span><span class="s">'bridge'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;mac</span> <span class="na">address=</span><span class="s">'52:54:00:9c:b6:92'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;source</span> <span class="na">bridge=</span><span class="s">'br0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;target</span> <span class="na">dev=</span><span class="s">'vnet0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">type=</span><span class="s">'virtio'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'net0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x0b'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/interface&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">'mouse'</span> <span class="na">bus=</span><span class="s">'virtio'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'input0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x0e'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/input&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">'keyboard'</span> <span class="na">bus=</span><span class="s">'virtio'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'input1'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x0f'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/input&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">'mouse'</span> <span class="na">bus=</span><span class="s">'ps2'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'input2'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/input&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">'keyboard'</span> <span class="na">bus=</span><span class="s">'ps2'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'input3'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/input&gt;</span>
-    <span class="nt">&lt;graphics</span> <span class="na">type=</span><span class="s">'spice'</span> <span class="na">port=</span><span class="s">'5900'</span> <span class="na">autoport=</span><span class="s">'yes'</span> <span class="na">listen=</span><span class="s">'127.0.0.1'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;listen</span> <span class="na">type=</span><span class="s">'address'</span> <span class="na">address=</span><span class="s">'127.0.0.1'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;image</span> <span class="na">compression=</span><span class="s">'off'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;gl</span> <span class="na">enable=</span><span class="s">'no'</span> <span class="na">rendernode=</span><span class="s">'/dev/dri/by-path/pci-0000:06:00.0-render'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/graphics&gt;</span>
-    <span class="nt">&lt;sound</span> <span class="na">model=</span><span class="s">'ich9'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'sound0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x00'</span> <span class="na">slot=</span><span class="s">'0x1b'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/sound&gt;</span>
-    <span class="nt">&lt;video&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">type=</span><span class="s">'none'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'video0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/video&gt;</span>
-    <span class="nt">&lt;hostdev</span> <span class="na">mode=</span><span class="s">'subsystem'</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">managed=</span><span class="s">'yes'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;driver</span> <span class="na">name=</span><span class="s">'vfio'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;source&gt;</span>
-        <span class="nt">&lt;address</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x08'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;/source&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'hostdev0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x0c'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/hostdev&gt;</span>
-    <span class="nt">&lt;hostdev</span> <span class="na">mode=</span><span class="s">'subsystem'</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">managed=</span><span class="s">'yes'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;driver</span> <span class="na">name=</span><span class="s">'vfio'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;source&gt;</span>
-        <span class="nt">&lt;address</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x0f'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;/source&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'hostdev1'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x01'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/hostdev&gt;</span>
-    <span class="nt">&lt;hostdev</span> <span class="na">mode=</span><span class="s">'subsystem'</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">managed=</span><span class="s">'yes'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;driver</span> <span class="na">name=</span><span class="s">'vfio'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;source&gt;</span>
-        <span class="nt">&lt;address</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x0f'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x1'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;/source&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'hostdev2'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x05'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/hostdev&gt;</span>
-    <span class="nt">&lt;redirdev</span> <span class="na">bus=</span><span class="s">'usb'</span> <span class="na">type=</span><span class="s">'spicevmc'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'redir0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'usb'</span> <span class="na">bus=</span><span class="s">'0'</span> <span class="na">port=</span><span class="s">'2'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/redirdev&gt;</span>
-    <span class="nt">&lt;redirdev</span> <span class="na">bus=</span><span class="s">'usb'</span> <span class="na">type=</span><span class="s">'spicevmc'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'redir1'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'usb'</span> <span class="na">bus=</span><span class="s">'0'</span> <span class="na">port=</span><span class="s">'3'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/redirdev&gt;</span>
-    <span class="nt">&lt;redirdev</span> <span class="na">bus=</span><span class="s">'usb'</span> <span class="na">type=</span><span class="s">'spicevmc'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'redir2'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'usb'</span> <span class="na">bus=</span><span class="s">'0'</span> <span class="na">port=</span><span class="s">'1'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/redirdev&gt;</span>
-    <span class="nt">&lt;memballoon</span> <span class="na">model=</span><span class="s">'virtio'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'balloon0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x04'</span> <span class="na">slot=</span><span class="s">'0x00'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/memballoon&gt;</span>
-    <span class="nt">&lt;shmem</span> <span class="na">name=</span><span class="s">'looking-glass'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">type=</span><span class="s">'ivshmem-plain'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;size</span> <span class="na">unit=</span><span class="s">'M'</span><span class="nt">&gt;</span>64<span class="nt">&lt;/size&gt;</span>
-      <span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">'shmem0'</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;address</span> <span class="na">type=</span><span class="s">'pci'</span> <span class="na">domain=</span><span class="s">'0x0000'</span> <span class="na">bus=</span><span class="s">'0x08'</span> <span class="na">slot=</span><span class="s">'0x01'</span> <span class="na">function=</span><span class="s">'0x0'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/shmem&gt;</span>
-  <span class="nt">&lt;/devices&gt;</span>
-  <span class="nt">&lt;seclabel</span> <span class="na">type=</span><span class="s">'dynamic'</span> <span class="na">model=</span><span class="s">'dac'</span> <span class="na">relabel=</span><span class="s">'yes'</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label&gt;</span>+1000:+78<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;imagelabel&gt;</span>+1000:+78<span class="nt">&lt;/imagelabel&gt;</span>
-  <span class="nt">&lt;/seclabel&gt;</span>
-  <span class="nt">&lt;qemu:commandline&gt;</span>
-    <span class="nt">&lt;qemu:arg</span> <span class="na">value=</span><span class="s">'-object'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;qemu:arg</span> <span class="na">value=</span><span class="s">'input-linux,id=mouse1,evdev=/dev/input/by-id/ckb-CORSAIR_IRONCLAW_RGB_Gaming_Mouse_vM_-event'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;qemu:arg</span> <span class="na">value=</span><span class="s">'-object'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;qemu:arg</span> <span class="na">value=</span><span class="s">'input-linux,id=kbd1,evdev=/dev/input/by-id/ckb-CORSAIR_K70_RGB_MK.2_Mechanical_Gaming_Keyboard_vKB_-event,grab_all=on,repeat=on,grab-toggle=scrolllock'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;qemu:arg</span> <span class="na">value=</span><span class="s">'-device'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;qemu:arg</span> <span class="na">value=</span><span class="s">'usb-audio,audiodev=usb,multi=on'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;qemu:arg</span> <span class="na">value=</span><span class="s">'-audiodev'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;qemu:arg</span> <span class="na">value=</span><span class="s">'pa,id=hda,server=/run/user/1000/pulse/native,out.stream-name=win10chat,in.stream-name=win10mic2,out.mixing-engine=off,in.mixing-engine=off'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;qemu:arg</span> <span class="na">value=</span><span class="s">'-audiodev'</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;qemu:arg</span> <span class="na">value=</span><span class="s">'pa,id=usb,server=/run/user/1000/pulse/native,out.stream-name=win10game,in.stream-name=win10mic1,out.frequency=48000'</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/qemu:commandline&gt;</span>
-<span class="nt">&lt;/domain&gt;</span></code></pre>
+<pre class="rouge highlight"><code data-lang="xml">link::files/libvirt_win10vm.xml[]</code></pre>
 </div>
 </div>
 </div>
@@ -1056,12 +796,50 @@ lrwxrwxrwx 1 root root 10 May 28 14:08 wwn-0x5002538e4978e48a-part3 -&gt; ../../
 </div>
 </div>
 
-    </div>
-    <div class="post-footer">
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
       
-    </div>
-  </article>
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2020
+         Sean Nelson 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
 
     </main>
+
+    
+
+    
+
+    
+
   </body>
+
 </html>
