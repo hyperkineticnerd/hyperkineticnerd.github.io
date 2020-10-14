@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kvm on Another Random Tech Blog</title>
+    <link>http://hyperkineticnerd.github.io/tags/kvm/</link>
+    <description>Recent content in kvm on Another Random Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Jul 2020 06:25:08 -0600</lastBuildDate>
+    
+	<atom:link href="http://hyperkineticnerd.github.io/tags/kvm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gaming and VR Virtual Machines</title>
+      <link>http://hyperkineticnerd.github.io/posts/win10vm/</link>
+      <pubDate>Thu, 23 Jul 2020 06:25:08 -0600</pubDate>
+      
+      <guid>http://hyperkineticnerd.github.io/posts/win10vm/</guid>
+      <description>Preamble The intent of this setup is to provide a base Linux system for Development and native Gaming, while also providing the ability to run Windows-only Games (or Heavy Windows-only software). The setup will consist of 2TB SSD for Linux where a small 200GB Microsoft Windows 10 disk will also reside. The Windows 10 Virtual Machine will have direct access to several devices like SATA and Graphics. In my setup, the VM will have Three SATA SSDs (for Video Game storage) and a PCI-Express based Graphics Card.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -8,7 +8,27 @@
   </url>
   
   <url>
+    <loc>http://hyperkineticnerd.github.io/categories/</loc>
+    <lastmod>2020-07-23T06:25:08-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hyperkineticnerd.github.io/categories/gaming/</loc>
+    <lastmod>2020-07-23T06:25:08-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://hyperkineticnerd.github.io/posts/win10vm/</loc>
+    <lastmod>2020-07-23T06:25:08-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hyperkineticnerd.github.io/tags/kvm/</loc>
+    <lastmod>2020-07-23T06:25:08-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hyperkineticnerd.github.io/tags/libvirt/</loc>
     <lastmod>2020-07-23T06:25:08-06:00</lastmod>
   </url>
   
@@ -18,11 +38,18 @@
   </url>
   
   <url>
-    <loc>http://hyperkineticnerd.github.io/catagories/</loc>
+    <loc>http://hyperkineticnerd.github.io/tags/</loc>
+    <lastmod>2020-07-23T06:25:08-06:00</lastmod>
   </url>
   
   <url>
-    <loc>http://hyperkineticnerd.github.io/tag/</loc>
+    <loc>http://hyperkineticnerd.github.io/categories/tech/</loc>
+    <lastmod>2020-07-23T06:25:08-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hyperkineticnerd.github.io/tags/win10/</loc>
+    <lastmod>2020-07-23T06:25:08-06:00</lastmod>
   </url>
   
 </urlset>

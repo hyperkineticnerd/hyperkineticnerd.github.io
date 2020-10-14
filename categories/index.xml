@@ -6,9 +6,28 @@
     <description>Recent content in Categories on Another Random Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 23 Jul 2020 06:25:08 -0600</lastBuildDate>
     
 	<atom:link href="http://hyperkineticnerd.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>gaming</title>
+      <link>http://hyperkineticnerd.github.io/categories/gaming/</link>
+      <pubDate>Thu, 23 Jul 2020 06:25:08 -0600</pubDate>
+      
+      <guid>http://hyperkineticnerd.github.io/categories/gaming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>http://hyperkineticnerd.github.io/categories/tech/</link>
+      <pubDate>Thu, 23 Jul 2020 06:25:08 -0600</pubDate>
+      
+      <guid>http://hyperkineticnerd.github.io/categories/tech/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
